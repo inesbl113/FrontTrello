@@ -66,7 +66,7 @@ export class ProjectFormComponent implements OnInit {
           this.modalService.close();
           this.snackBar.open('Project created successfully!', 'Close', {
             duration: 3000, 
-            panelClass: ['success-snackbar']// Duration in milliseconds after which the snack-bar will be automatically dismissed.
+            panelClass: ['custom-snackbar']// Duration in milliseconds after which the snack-bar will be automatically dismissed.
           }); // Publish the event
         },
         error: (error) => console.error('Error:', error),

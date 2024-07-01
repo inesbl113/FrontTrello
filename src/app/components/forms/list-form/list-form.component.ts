@@ -99,7 +99,7 @@ export class ListFormComponent implements OnInit {
               this.modalService.close();
               this.snackBar.open('List created successfully!', 'Close', {
                 duration: 3000,
-                panelClass: ['warning-snackbar'], // Duration in milliseconds after which the snack-bar will be automatically dismissed.
+                panelClass: ['custom-snackbar'], // Duration in milliseconds after which the snack-bar will be automatically dismissed.
               }); // // Emit the list creation event
             },
             error: (error) => console.error('Error:', error),

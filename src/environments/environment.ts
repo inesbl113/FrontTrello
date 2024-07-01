@@ -1,5 +1,4 @@
-
 export const environment = {
-  production: false,
-  apiUrl: 'https://trellobackendupdate.azurewebsites.net'
+  production: true,
+  apiUrl: 'https://api.example.com'
 };

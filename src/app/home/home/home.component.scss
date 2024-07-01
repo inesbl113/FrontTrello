@@ -10,7 +10,7 @@
 }
 
 .sidebar {
-  position: fixed;
+  position: sticky;
   top:50; /* Anchors the sidebar to the viewport */
   left: 0; /* Adjust to 'right: 0;' for a right-aligned sidebar */
   width: 20vw;
@@ -20,6 +20,8 @@
   box-shadow: 2px 0 5px rgba(0,0,0,0.1); /* Adds a subtle shadow to the right */
   z-index: 100; /* Ensures it's above most other content */
   overflow-y: auto; /* Adds scroll for overflow content */
+  padding-bottom: 300px;
+  
 }
 
 .sidebar ul {
@@ -29,13 +31,14 @@
 
 }
 .main-content {
+  
   display: flex;
   flex-direction: row;
   flex-grow: 1;
   padding: 20px;
   gap: 20px;
   width: calc(100% - 20vw); /* Adjust width to account for sidebar */
-  margin-left: 20vw; /* Pushes main content to start after the sidebar */
+ /* Pushes main content to start after the sidebar */
 }
 
 .add-list {

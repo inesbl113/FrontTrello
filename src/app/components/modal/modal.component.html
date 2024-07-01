@@ -1,32 +1,17 @@
 <div class="modal-overlay" *ngIf="isOpen">
   <div class="modal">
     <div class="modal-header">
-      <h2>{{ formType === 'projectform' ? 'My Project' : formType === 'listform' ? 'My List' : 'Add Task' }}</h2>
+      <h2>{{ formType === 'projectform' ? 'Project' : formType === 'listform' ? 'List' : 'Task' }}</h2>
+      <button class="close-button" (click)="closeModal()">
+        <i class="fas fa-times"></i>
+      </button>
     </div>
     <div class="modal-body">
-      <!-- ngSwitch directive to switch between forms -->
-
       <div [ngSwitch]="formType">
-        <app-project-form
-          *ngSwitchCase="'projectform'"
-          [currentId]="currentId"
-        ></app-project-form>
-        <app-list-form
-          *ngSwitchCase="'listform'"
-          [currentId]="currentId"
-          [projectId]="projectid"
-          [data]="data"
-        ></app-list-form>
-        <app-task-form
-          *ngSwitchCase="'taskform'"
-          [currentId]="currentId"
-         
-        ></app-task-form>
+        <app-project-form *ngSwitchCase="'projectform'" [currentId]="currentId"></app-project-form>
+        <app-list-form *ngSwitchCase="'listform'" [currentId]="currentId"></app-list-form>
+        <app-task-form *ngSwitchCase="'taskform'" [currentId]="currentId"></app-task-form>
       </div>
-    </div>
-    <div class="modal-footer">
-      <button (click)="closeModal()">Close</button>
-      <button type="submit" (click)="onSubmit()">Save</button>
     </div>
   </div>
 </div>

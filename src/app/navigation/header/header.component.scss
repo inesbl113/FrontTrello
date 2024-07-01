@@ -1,7 +1,7 @@
 header {
-  background-color: #257499; // This is a nice shade of green, but you can replace it with any color you like.
+  background-color: var(--primary-color);
   color: white; // This will make the text color white, which should contrast well with the background color.
-  height: 15vh;
+  height: 8vh;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -9,7 +9,7 @@ header {
 
   .create-button {
     padding: 8px 16px;
-    background-color: #007bff;
+    background-color: var(--secondary-color);
     color: white;
     border: none;
     border-radius: 4px;
@@ -17,9 +17,7 @@ header {
     transition: background-color 0.3s ease;
   }
   
-  .create-button:hover {
-    background-color: #0056b3;
-  }
+ 
   
   h1 {
     font-size: 2em;

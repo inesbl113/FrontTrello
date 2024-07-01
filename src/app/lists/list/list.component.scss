@@ -1,11 +1,16 @@
 .list-container {
   background-color: #ffffff;
   border: 1px solid #335F8A;
-  border-radius: 8px;
+  border-radius: 20px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  margin: 20px;
+  margin: 10px;
   padding: 20px;
-  max-width: 600px;
+  max-width: 500px;
+}
+
+.list-container:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transform: translateY(-3px);
 }
 
 .list-header {
@@ -28,9 +33,14 @@
 }
 
 .edit-icon, .delete-icon {
-  color: #F26619;
+  color: var(--primary-color);
   cursor: pointer;
 }
+
+.edit-icon:hover, .delete-icon:hover {
+  color: var(--secondary-color);
+}
+
 
 .list-items {
   list-style-type: none;
@@ -46,14 +56,15 @@
 }
 
 .add-item-btn {
-  background-color: #F6B12D;
+  background-color: var(--primary-color);
   color: #ffffff;
   border: none;
   padding: 10px 20px;
-  border-radius: 5px;
+  border-radius: 10px;
   cursor: pointer;
 }
 
 .add-item-btn:hover {
-  background-color: #F26619;
+  background-color: var(--secondary-color);
 }
+

@@ -74,13 +74,15 @@ export class TaskCardComponent implements OnInit {
   getBackgroundColor(categorie: string): string {
     switch (categorie) {
       case 'Marketing':
-        return '#30e49f';
+        return '#F26619';
       case 'Design':
-        return 'orange';
-      case 'IT':
-        return 'green';
+        return '#335F8A';
+      case 'Informatique':
+        return '#FED440';
+      case 'Event':
+         return '#55D5E0';
       default:
-        return 'grey'; // Default color
+        return '#2F4558'; 
     }
   }
 
