@@ -64,6 +64,7 @@ export class ProjectComponent implements OnInit, OnDestroy {
       next: () => {
         console.log(`Project with id: ${id} deleted successfully.`);
         this.projectDeleted.emit(id);
+        this.apiService.projectCreated();
       },
       error: (error) => console.error('Error deleting project:', error),
     });
