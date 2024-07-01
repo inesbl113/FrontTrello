@@ -1,0 +1,60 @@
+.comment-section {
+
+  padding: 15px;
+  border-radius: 8px;
+
+
+}
+.comment {
+  border: 1px solid #ccc; /* Adds a light grey border */
+  margin-bottom: 10px;
+  padding: 10px;
+  background-color: white;
+  border-radius: 5px;
+
+
+}
+
+.comment-input textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  resize: vertical;
+}
+
+.comment-input button {
+  background-color: #dacf08;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  
+}
+
+.comment-input button:hover {
+  background-color: #026aa7;
+}
+
+.comment-list .comment {
+  margin-bottom: 10px;
+  padding: 10px;
+  background-color: white;
+  border-radius: 5px;
+}
+
+.comment-text {
+  margin: 0 0 5px 0;
+}
+
+.comment-author {
+  font-size: 0.8em;
+  color: #666;
+}
+
+button:not(:disabled) {
+  background: #000;
+  padding : 10px 20px;
+}

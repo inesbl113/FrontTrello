@@ -1,0 +1,28 @@
+<form [formGroup]="listForm" (ngSubmit)="submit()" class="my-form">
+  <div>
+    <label for="title">List Name</label>
+    <input id="title" formControlName="title" class="form-control" />
+    <!-- Error Message for List Name -->
+    <div
+      *ngIf="
+        listForm.get('title')?.touched && listForm.get('title')?.invalid
+      "
+      class="error"
+    >
+      List Name is required.
+    </div>
+  </div>
+  <!-- Additional fields can be added here following the same structure as needed -->
+  
+  <!-- Display the Submit button only if isUpdateValue is false -->
+  <button *ngIf="!isUpdateValue" type="submit" class="btn btn-primary">Submit</button>
+  <!-- Display the Edit button only if isUpdateValue is true -->
+  <button
+    *ngIf="isUpdateValue"
+    type="button"
+    class="btn btn-warning"
+    (click)="edit(currentId, formType)"
+  >
+    Edit
+  </button>
+</form>

@@ -1,0 +1,48 @@
+<form [formGroup]="projectForm" (ngSubmit)="submit()" class="my-form">
+  <div>
+    <label for="title">Project Name</label>
+    <input id="title" formControlName="title" class="form-control" />
+    <!-- Error Message for Title -->
+    <div
+      *ngIf="
+        projectForm.get('title')?.touched && projectForm.get('title')?.invalid
+      "
+      class="error"
+    >
+      Project Name is required.
+    </div>
+  </div>
+  <div>
+    <label for="description">Description</label>
+    <input
+      id="description"
+      formControlName="description"
+      class="form-control"
+    />
+    <!-- Error Message for Description -->
+    <div
+      *ngIf="
+        projectForm.get('description')?.touched &&
+        projectForm.get('description')?.invalid
+      "
+      class="error"
+    >
+      Description is required.
+    </div>
+  </div>
+  <!-- Additional fields can be added here following the same structure -->
+  
+  <!-- Conditionally display the Submit button when isUpdateValue is false -->
+  <button *ngIf="!isUpdateValue" type="submit" class="btn btn-primary">
+    Submit
+  </button>
+  <!-- Conditionally display the Edit button when isUpdateValue is true, adjusted to match task form's edit button -->
+  <button
+    *ngIf="isUpdateValue"
+    type="button"
+    class="btn btn-warning"
+    (click)="edit(currentId, formType)"
+  >
+    Edit
+  </button>
+</form>

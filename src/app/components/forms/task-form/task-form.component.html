@@ -1,0 +1,38 @@
+<form [formGroup]="taskForm" (ngSubmit)="submit()" class="my-form">
+  <div>
+    <label for="Title"> title</label>
+    <input id="Title" formControlName="Title" class="form-control" />
+    <!-- Error for Title -->
+    <div *ngIf="taskForm.get('Title')?.touched && taskForm.get('Title')?.invalid" class="error">
+      Title is required.
+    </div>
+  </div>
+  <div>
+    <label for="Categorie"> categorie</label>
+    <input id="Categorie" formControlName="Categorie" class="form-control" />
+    <!-- Error for Categorie -->
+    <div *ngIf="taskForm.get('Categorie')?.touched && taskForm.get('Categorie')?.invalid" class="error">
+      Categorie is required.
+    </div>
+  </div>
+  <div>
+    <label for="Description"> description</label>
+    <input id="Description" formControlName="Description" class="form-control" />
+    <!-- Error for Description -->
+    <div *ngIf="taskForm.get('Description')?.touched && taskForm.get('Description')?.invalid" class="error">
+      Description is required.
+    </div>
+  </div>
+  <div>
+    <label for="dueDate">Due Date</label>
+    <input type="date" id="dueDate" formControlName="dueDate" class="form-control" />
+    <!-- Error for dueDate -->
+    <div *ngIf="taskForm?.get('dueDate')?.touched && taskForm?.get('dueDate')?.invalid" class="error">
+      A valid future date is required.
+    </div>
+  </div>
+  <!-- Conditionally display the Submit button when isUpdate is false -->
+  <button *ngIf="!isUpdateValue" type="submit" class="btn btn-primary">Submit</button>
+</form>
+<!-- Conditionally display the Edit button when isUpdate is true -->
+<button *ngIf="isUpdateValue" type="button" class="btn btn-warning" (click)="edit(formType)">Edit</button>

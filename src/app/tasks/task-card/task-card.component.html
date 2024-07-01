@@ -1,0 +1,49 @@
+<div class="task-wrapper">
+  <div class="card">
+    <!-- Task header and body remain unchanged -->
+    <form [formGroup]="commentForm" (ngSubmit)="submitComment()" *ngIf="showComments">
+      <div class="input-container">
+        <div class="input-group">
+          <input type="text" placeholder="Add comment" class="form-control" formControlName="text" />
+          <div class="input-group-append">
+            <button class="btn btn-outline-secondary submit-button" type="submit">
+              <mat-icon *ngIf="!editCommentMode">edit</mat-icon>
+              <mat-icon *ngIf="editCommentMode">send</mat-icon>
+            </button>
+          </div>
+        </div>
+      </div>
+    </form>
+
+    <div class="card-body">
+      <div class="body-header">
+        <small class="text-muted">Avant le : {{ dueDate | frenchDate }}</small>
+        <p class="card-categorie" [ngStyle]="{'background-color': getBackgroundColor(taskCategorie)}">{{ taskCategorie }}</p>
+      </div>
+      <p class="card-text">{{ description }}</p>
+      <div class="comment-section-header" (click)="showCommentsList()">
+        <mat-icon>comment</mat-icon>
+        <span class="ml-1">commentaires</span>
+      </div>
+    </div>
+    <div class="card-footer">
+      <!-- Visibility and comment addition logic remain unchanged -->
+      <div *ngIf="isVisible" class="comment-wrapper">
+        <ng-container *ngFor="let comment of comments">
+          <div style="display: flex; flex-direction: row; align-items: center;">
+            <div *ngIf="editingCommentId === comment.id; else displayComment">
+              <!-- Replace [(ngModel)] with reactive form control -->
+              <input name="editComment" class="form-control" [formControl]="editCommentForms[comment.id]" (blur)="editComment(comment.id, editCommentForms[comment.id].value)" />
+            
+            </div>
+            <ng-template #displayComment>
+              <app-comment [commentText]="comment.text" [commentAuthor]="comment.author"></app-comment>
+            </ng-template>
+            <mat-icon class="icon-button" (click)="startEditing(comment.id)">edit</mat-icon>
+            <mat-icon class="icon-button" (click)="deleteComment(comment.id)">delete_outline</mat-icon>
+          </div>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,52 @@
+header {
+  background-color: #257499; // This is a nice shade of green, but you can replace it with any color you like.
+  color: white; // This will make the text color white, which should contrast well with the background color.
+  height: 15vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1em;
+
+  .create-button {
+    padding: 8px 16px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .create-button:hover {
+    background-color: #0056b3;
+  }
+  
+  h1 {
+    font-size: 2em;
+    text-decoration: none;
+  }
+
+  h1 a {
+    color: white;
+    text-decoration: none;
+  }
+  nav {
+    ul {
+      display: flex;
+      gap: 1em;
+      list-style-type: none;
+      li {
+        a {
+          color: white;
+          text-decoration: none;
+          font-size: 1.2em;
+          cursor: pointer; // Added this line
+
+          &:hover {
+            color: #f8f8f8;
+          }
+        }
+      }
+    }
+  }
+}
