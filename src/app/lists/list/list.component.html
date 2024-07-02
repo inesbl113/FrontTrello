@@ -1,13 +1,10 @@
 <div class="list-container">
   <header class="list-header">
     <h2 class="list-title">{{ title }}</h2>
-    <div class="icon-group">
-      <i class="fas fa-edit edit-icon"(click)="toggleModal('listform', listId ,tasksList); $event.stopPropagation()"></i>
-      <i class="fas fa-trash delete-icon" (click)="deleteList(listId)"></i>
-    </div>
+    <!-- Icon group for editing and deleting -->
   </header>
-  <ul class="list-items">
-    <li *ngFor="let task of tasksList" class="list-item">
+  <ul class="list-items" cdkDropList (cdkDropListDropped)="drop($event)">
+    <li *ngFor="let task of tasksList; let i = index" cdkDrag class="list-item">
       <app-task-card
         [taskId]="task.id"
         [title]="task.title"
@@ -20,7 +17,7 @@
     </li>
   </ul>
   <div class="button-wrapper">
-    <button class="add-item-btn" (click)=" toggleModalList('taskform', listId,tasksList, projectId)">
+    <button class="add-item-btn" (click)="toggleModalList('taskform', listId, tasksList, projectId)">
       Add another card
     </button>
   </div>

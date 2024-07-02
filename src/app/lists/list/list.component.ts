@@ -9,12 +9,14 @@ import { List } from '../../models/lists';
 import { TaskCardComponent } from '../../tasks/task-card/task-card.component';
 import { ApiService } from '../../services/service-api.service';
 import { StoreService } from '../../services/store.service';
+import { CdkDragDrop, moveItemInArray, DragDropModule } from '@angular/cdk/drag-drop';
+
 
 
 @Component({
   selector: 'app-list',
   standalone: true,
-  imports: [CommonModule, RouterLink, ModalComponent, TaskCardComponent],
+  imports: [CommonModule, RouterLink, ModalComponent, TaskCardComponent, DragDropModule],
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.scss'],
 })
@@ -44,6 +46,21 @@ export class ListComponent implements OnInit, OnDestroy {
 
     this.prepareLists();
   }
+
+   // Correctly type the event as CdkDragDrop<Task[]>
+   drop(event: CdkDragDrop<Task[]>): void {
+    console.log('Dropped event:', event);
+    console.log('Previous Index:', event.previousIndex);
+    console.log('Current Index:', event.currentIndex);
+    console.log('Dragged Item:', event.item);
+
+    // Handle the drop action
+    if (event.previousContainer === event.container) {
+      moveItemInArray(this.tasksList, event.previousIndex, event.currentIndex);
+    }
+  }
+
+
 
   deleteList(id: number) {
     // Step 1: Find the index of the list to delete

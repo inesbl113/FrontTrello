@@ -16,11 +16,14 @@
   border-radius: 8px;
   width: 250px;
   transition: box-shadow 0.3s ease;
+  height : 250px;
 }
 
 .card:hover {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transform: translateY(-3px);
+  
+
 }
 
 .card-header {
@@ -61,6 +64,7 @@ padding : 2px 10px;
 border-radius: 25px;
 color : white;
 margin : 0;
+font-size: 12px;
 }
 
 
